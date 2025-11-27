@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cute Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffe8f7 100%);
+            text-align: center;
+        }
+
+        /* 떠다니는 하트들 */
+        .heart {
+            position: absolute;
+            color: #ff7eb4;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+        }
+
+        /* 중앙 카드 */
+        .card {
+            margin-top: 150px;
+            display: inline-block;
+            padding: 40px 50px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(255, 140, 180, 0.4);
+            animation: pop 1.2s ease;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #ff5fa2;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        /* 귀여운 버튼 */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 10px;
+            border-radius: 25px;
+            background: #ff9fcf;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(255, 100, 160, 0.4);
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ff7aba;
+            transform: translateY(-6px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 랜덤 하트 20개 자동 생성 -->
+    <script>
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = (Math.random() * 100 + 50) + "vh";
+            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+            heart.style.fontSize = (18 + Math.random() * 15) + "px";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div class="card">
+        <div class="title">🌟 Welcome! 🌟</div>
+        <div class="subtitle">귀여운 나만의 작은 공간 ✨</div>
+
+        <a class="btn" href="#">♡ 버튼 1</a>
+        <a class="btn" href="#">★ 버튼 2</a>
+        <a class="btn" href="#" onclick="alert('아직 준비 중이야!')">✨ Surprise</a>
+    </div>
+
+</body>
+</html>
